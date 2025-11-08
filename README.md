@@ -20,7 +20,7 @@ Uma aplicação **Flutter** simples e funcional para calcular o **Índice de Mas
 
 ## 📱 Interface
 
-> Adicione aqui uma imagem da interface (por exemplo `screenshot.png`):
+
 
 ![Tela da Calculadora de IMC](screenshot.png)
 
