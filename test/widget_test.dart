@@ -1,30 +1,39 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:calculadora_imc_flutter/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Verifica se os campos e botão estão presentes', (
+    WidgetTester tester,
+  ) async {
+    // Monta o widget principal
+    await tester.pumpWidget(const CalculadoraIMCApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verifica se os campos de texto estão na tela
+    expect(find.byType(TextField), findsNWidgets(2));
+    expect(find.widgetWithText(TextField, 'Peso (kg)'), findsOneWidget);
+    expect(find.widgetWithText(TextField, 'Altura (m)'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Verifica se o botão está presente
+    expect(find.text('Calcular IMC'), findsOneWidget);
+  });
+
+  testWidgets('Calcula IMC corretamente', (WidgetTester tester) async {
+    await tester.pumpWidget(const CalculadoraIMCApp());
+
+    // Insere valores nos campos
+    await tester.enterText(find.widgetWithText(TextField, 'Peso (kg)'), '70');
+    await tester.enterText(
+      find.widgetWithText(TextField, 'Altura (m)'),
+      '1.75',
+    );
+
+    // Toca no botão
+    await tester.tap(find.text('Calcular IMC'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verifica se o resultado aparece
+    expect(find.textContaining('IMC: 22.86'), findsOneWidget);
+    expect(find.textContaining('Peso normal'), findsOneWidget);
   });
 }

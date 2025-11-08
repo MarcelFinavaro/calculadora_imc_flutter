@@ -1,16 +1,73 @@
-# calculadora_imc_flutter
+# 🧮 Calculadora de IMC
 
-A new Flutter project.
+Uma aplicação **Flutter** simples e funcional para calcular o **Índice de Massa Corporal (IMC)**.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- Entrada de **peso** e **altura**
+- **Cálculo automático** do IMC
+- **Classificação** do resultado:
+  - Abaixo do peso
+  - Peso normal
+  - Sobrepeso
+  - Obesidade
+- **Validação** de entradas inválidas
+- **Testes automatizados** com Flutter Test
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Interface
+
+> Adicione aqui uma imagem da interface (por exemplo `screenshot.png`):
+
+![Tela da Calculadora de IMC](screenshot.png)
+
+---
+
+## 🚀 Como executar
+
+```
+flutter pub get
+flutter run
+```
+
+---
+
+## 🧪 Como testar
+
+```
+flutter test
+```
+
+---
+
+## ✅ Testes incluídos
+
+- Verifica se a **interface carrega corretamente**
+- Valida **entradas inválidas** (altura zero, texto não numérico)
+- Verifica a **classificação correta do IMC** (ex: obesidade, peso normal, etc.)
+
+---
+
+## 📂 Estrutura do projeto
+
+```
+calculadora_imc_flutter/
+├── lib/
+│   └── main.dart
+├── test/
+│   └── imc_test.dart
+├── pubspec.yaml
+└── README.md
+```
+
+---
+
+## 💡 Autor
+
+**Marcel Finavaro**  
+📍 Canoas – RS 🇧🇷  
+
+> Projeto desenvolvido com **Flutter 3.9.2**
